@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'market/article/:id', component: DetailArticleComponent, data: { requiresLogin: true }, canActivate: [ AccessGuard ] },
   { path: 'upload/:id', component: UploadComponent, data: { requiresLogin: true }, canActivate: [ AccessGuard ] },
   { path: 'vendre', component: VendreComponent, data: { requiresLogin: true }, canActivate: [ AccessGuard ] },
+  { path: 'edit-article/:id', component: VendreComponent, data: { requiresLogin: true }, canActivate: [ AccessGuard ] },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent, data: { redirectIfSignedIn: true }, canActivate: [ AccessGuard ] },
   { path: 'register', component: RegisterComponent, data: { redirectIfSignedIn: true }, canActivate: [ AccessGuard ] },

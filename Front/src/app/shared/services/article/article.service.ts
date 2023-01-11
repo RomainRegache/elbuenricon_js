@@ -26,6 +26,12 @@ export class ArticleService {
     });
   }
 
+  putArticle(id: number, arti: Article): Observable<Article> {
+    return this.http.put<Article>(`${environment.apiUrl}/articles/${id}`, {
+      ...arti
+    });
+  }
+
   deleteArticle(id: string): Observable<Article> {
     return this.http.delete<Article>(`${environment.apiUrl}/articles/${id}`);
   }

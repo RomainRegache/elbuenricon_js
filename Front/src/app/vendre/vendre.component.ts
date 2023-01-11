@@ -50,10 +50,15 @@ export class VendreComponent implements OnInit {
       this.isEditing = true;
       this._arti.getArticleById(this.idArticle).subscribe({
         next: (arti: Article) => {
-          this.articleForm.get('article')?.setValue(arti?.nom);
+          console.log(arti.prix);
+          this.articleForm.get('nom')?.setValue(arti?.nom);
+          this.articleForm.get('description')?.setValue(arti?.description);
+          this.articleForm.get('prix')?.setValue(arti?.prix);
+          this.articleForm.get('idTypeProduit')?.setValue(arti?.idTypeProduit);
+          this.articleForm.get('idEtatProduit')?.setValue(arti?.idEtatProduit);
         },
         error: () => {
-          this.openSnackBar("Une erreur est survenue lors du chargement du commentaire.", "Modification Commentaire")
+          this.openSnackBar("Une erreur est survenue lors du chargement de l'article.", "Modification Commentaire")
         }
       });
     }
@@ -66,14 +71,14 @@ export class VendreComponent implements OnInit {
         nom: this.articleForm.get('nom')?.value,
         idTypeProduit: this.articleForm.get('idTypeProduit')?.value,
         idEtatProduit: this.articleForm.get('idEtatProduit')?.value,
-        description: this.articleForm.get('nom')?.value,
+        description: this.articleForm.get('description')?.value,
         prix: this.articleForm.get('prix')?.value,
         datePublication: new Date(),
         _id: this.articleForm.get('pseudo')?.value + '-' + new Date().getTime()
       }
 
       if (this.isEditing) {
-        //this.editComment(arti);
+        this.editComment(arti);
       } else {
         this.addComment(arti);
       }
@@ -96,9 +101,9 @@ export class VendreComponent implements OnInit {
     });
   }
 
-  /*
+
   editComment(arti: Article) {
-    this._arti.putComment(this.idArticle, comm).subscribe({
+    this._arti.putArticle(this.idArticle, arti).subscribe({
       next: () => {
         this.openSnackBar("Le commentaire a été correctement modifié.", "Ajout Commentaire");
         this._router.navigate(['/home']);
@@ -111,7 +116,7 @@ export class VendreComponent implements OnInit {
         }
       }
     });
-  }*/
+  }
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
