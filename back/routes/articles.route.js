@@ -78,10 +78,10 @@ router.put('/articles/:id',  AuthMiddleware.checkToken, async (req, res) => {
             article.description = req.body.description;
         }
         if (req.body.idTypeProduit) {
-            article.description = req.body.idTypeProduit;
+            article.idTypeProduit = req.body.idTypeProduit;
         }
         if (req.body.idEtatProduit) {
-            article.description = req.body.idEtatProduit;
+            article.idEtatProduit = req.body.idEtatProduit;
         }
         const savedComment = await article.save();
         res.send(savedComment);
