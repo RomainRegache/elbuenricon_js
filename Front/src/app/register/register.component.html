@@ -1,0 +1,78 @@
+<form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
+    <mat-form-field class="field-full-width" appearance="fill">
+      <mat-label>Pseudo</mat-label>
+      <input type="text" matInput formControlName="pseudo" placeholder="Pseudo">
+      <mat-error *ngIf="form.pseudo?.errors?.required">
+        Le pseudo est <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="text" matInput formControlName="email" placeholder="Email">
+      <mat-error *ngIf="form.email?.errors?.required">
+        L'adresse email est <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-full-width" appearance="fill">
+        <mat-label>Mot de passe</mat-label>
+        <input type="password" matInput formControlName="password" placeholder="Mot de passe">
+        <mat-error *ngIf="form.password?.errors?.required">
+          Le mot de passe est <strong>obligatoire</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-full-width" appearance="fill">
+        <mat-label>Confirmation Mot de passe</mat-label>
+        <input type="password" matInput formControlName="confirmPassword" placeholder="Confirmation">
+        <mat-error *ngIf="form.confirmPassword?.errors?.required">
+            La confirmation du mot de passe est <strong>obligatoire</strong>
+        </mat-error>
+        <mat-error *ngIf="form.confirmPassword?.errors?.confirmedValidator">
+            Les mot de passe <strong>ne correspond pas</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-full-width" appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input type="text" matInput formControlName="nom" placeholder="Nom">
+      <mat-error *ngIf="form.nom?.errors?.required">
+        Le nom est <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-full-width" appearance="fill">
+      <mat-label>Prenom</mat-label>
+      <input type="text" matInput formControlName="prenom" placeholder="Prenom">
+      <mat-error *ngIf="form.prenom?.errors?.required">
+        Le prenom est <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-full-width" appearance="fill">
+      <mat-label>Adresse ligne 1</mat-label>
+      <input type="text" matInput formControlName="adresse1" placeholder="Adresse">
+      <mat-error *ngIf="form.adresse1?.errors?.required">
+        L'adresse est <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-full-width" appearance="fill">
+      <mat-label>Adresse ligne 2</mat-label>
+      <input type="text" matInput formControlName="adresse2" placeholder="Complement d'adresse">
+      <mat-error *ngIf="form.adresse2?.errors?.required">
+        L'adresse est <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-full-width" appearance="fill">
+      <mat-label>Ville</mat-label>
+      <input type="text" matInput formControlName="ville" placeholder="Ville">
+      <mat-error *ngIf="form.ville?.errors?.required">
+        La ville est <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-full-width" appearance="fill">
+      <mat-label>Code postal</mat-label>
+      <input type="text" matInput formControlName="codePostal" placeholder="Code postal">
+      <mat-error *ngIf="form.codePostal?.errors?.required">
+        Le code postal est <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-flat-button color="primary" aria-label="Se connecter">
+      S'enregistrer
+  </button>
+</form>

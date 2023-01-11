@@ -1,0 +1,39 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.active-nav {
+  border: 1px solid white;
+  border-radius: 25%;
+}
+
+.btn-search {
+  color: #fda00c;
+  border-color: #fda00c;
+}
+
+.btn-search:hover {
+  color: #2D3142;
+  border-color: #2D3142;
+  background-color: #fda00c;
+}
+
+.dropdown-toggle {
+  color: #fda00c;
+}
+
+.dropdown-toggle::after {
+  color: #fda00c;
+}
+
+.form-control {
+  width: 400px;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 .2rem rgb(253, 160, 12)
+}

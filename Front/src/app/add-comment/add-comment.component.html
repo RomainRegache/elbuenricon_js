@@ -1,0 +1,19 @@
+<form class="form" [formGroup]="commentForm" (ngSubmit)="sendComment()">
+    <mat-form-field class="field-full-width" appearance="fill">
+      <mat-label>Pseudo</mat-label>
+      <input type="text" matInput formControlName="pseudo">
+      <mat-error *ngIf="form.pseudo?.errors?.required">
+        Le pseudo est <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-full-width" appearance="fill">
+        <mat-label>Commentaire</mat-label>
+        <textarea matInput cdkTextareaAutosize formControlName="comment" placeholder="Commentaire"></textarea>
+        <mat-error *ngIf="form.comment?.errors?.required">
+          Le commentaire est <strong>obligatoire</strong>
+        </mat-error>
+    </mat-form-field>
+    <button mat-flat-button color="primary" aria-label="Se connecter">
+      {{ isEditing ? 'Modifier' : 'Ajouter' }}
+  </button>
+</form>

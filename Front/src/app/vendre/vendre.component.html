@@ -1,0 +1,45 @@
+<form class="form" [formGroup]="articleForm" (ngSubmit)="sendComment()">
+  <mat-form-field class="field-full-width" appearance="fill">
+    <mat-label>Pseudo</mat-label>
+    <input type="text" matInput formControlName="pseudo">
+    <mat-error *ngIf="form.pseudo?.errors?.required">
+      Le pseudo est <strong>obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="field-full-width" appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input type="text" matInput formControlName="nom" placeholder="Nom">
+    <mat-error *ngIf="form.nom?.errors?.required">
+      Le nom est <strong>obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="field-full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput cdkTextareaAutosize formControlName="description" placeholder="Description"></textarea>
+    <mat-error *ngIf="form.description?.errors?.required">
+      La description est <strong>obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="field-full-width" appearance="fill">
+    <mat-label>Prix</mat-label>
+    <input matInput type="number" formControlName="prix" placeholder="Prix">
+    <mat-error *ngIf="form.prix?.errors?.required">
+      La prix est <strong>obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
+  <div class="form-group">
+    <label for="idTypeProduit">Type Produit</label>
+    <select id="idTypeProduit" class="form-control" formControlName="idTypeProduit">
+      <option *ngFor="let articleElements of categorie | async" [ngValue]="articleElements.id">{{ articleElements.nom }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="idEtatProduit">Etat Produit</label>
+    <select id="idEtatProduit" class="form-control" formControlName="idEtatProduit">
+      <option *ngFor="let articleElements of etat | async" [ngValue]="articleElements.id">{{ articleElements.nom }}</option>
+    </select>
+  </div>
+  <button mat-flat-button color="primary" aria-label="Se connecter">
+    {{ isEditing ? 'Modifier' : 'Ajouter' }}
+  </button>
+</form>

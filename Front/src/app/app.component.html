@@ -1,0 +1,41 @@
+<p>
+    <mat-toolbar color="" style="background-color: #2D3142!important;">
+      <button class="navbar-brand" href="#" [routerLink]="['/home']" style="background-color: #2D3142; border: none"><img width="40" height="40" src="https://i.ibb.co/4R69k05/logo-2.png" class="img-fluid"
+                                                                              alt="Elbuenricon"></button>
+      <button class="nav-item active" routerLinkActive="active-nav" [routerLink]="['/home']" style="background-color: #2D3142!important; border: none">
+        <span style="font-size: 30px; font-family: 'OCR A Extended', sans-serif; color: #fda00c">elbuenricón</span>
+      </button>
+      <form class="form-inline my-2 my-lg-0" style="margin: 120px">
+        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Rechercher" style="display: inline-block">
+        <button class="btn btn-outline-success btn-search my-2 my-sm-0" type="submit" style="display: inline-block; margin-left: 10px">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+               viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </button>
+      </form>
+        <span class="example-spacer"></span>
+        <div *ngIf="isConnected(); else notConnectedMenu">
+            <button [routerLink]="['/market']" routerLinkActive="active-nav" mat-flat-button color="primary" aria-label="Button to market">
+                Market
+            </button>
+            <button [routerLink]="['/vendre']" routerLinkActive="active-nav" mat-flat-button color="primary" aria-label="Button to vendre">
+                Vendre
+            </button>
+            <button (click)="disconnect()" mat-flat-button color="primary" aria-label="Button to login">
+                Se déconnecter
+            </button>
+        </div>
+        <ng-template #notConnectedMenu>
+            <button [routerLink]="['/login']" routerLinkActive="active-nav" mat-flat-button color="primary" aria-label="Button to login">
+                Se connecter
+            </button>
+            <button [routerLink]="['/register']" routerLinkActive="active-nav" mat-flat-button color="primary" aria-label="Button to login">
+                S'enregistrer
+            </button>
+        </ng-template>
+    </mat-toolbar>
+</p>
+
+<router-outlet></router-outlet>

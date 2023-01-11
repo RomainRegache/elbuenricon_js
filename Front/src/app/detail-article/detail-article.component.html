@@ -1,0 +1,20 @@
+<div class="container-fluid" *ngIf="article$ | async as article">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt;">
+      <div class="row">
+        <div class="col-md-9 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt; border: solid black 2px">
+          <button class="btn btn-primary" style="background-color: #fda00c; border: #2D3142" (click)="onViewBackMarket()">Retour aux résultats</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt; border: solid black 2px">
+          <img class="card-img-top" [src]="sanitize(this.photo_afficher)" alt="Card image cap" style="height: 180px">
+        </div>
+        <div class="col-md-9 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt; border: solid black 2px">
+          {{ article.prix }}€
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

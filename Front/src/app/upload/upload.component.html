@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <h2>Ajouter des photos</h2>
+  <div class="file-upload">
+    <input
+      type="file"
+      name="image"
+      ng2FileSelect
+      [uploader]="uploader"
+      accept="image/x-png,image/gif,image/jpeg"
+      multiple
+    />
+    <button
+      type="button"
+      (click)="uploader.uploadAll()"
+      [disabled]="!uploader.getNotUploadedItems().length"
+    >
+      Upload
+    </button>
+    <button
+    type="button"
+    [routerLink]="['/market']">
+      Terminer
+    </button>
+  </div>
+</div>

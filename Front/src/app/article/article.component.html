@@ -1,0 +1,16 @@
+<div class="card article_card" id="article{{ article?._id }}" style="width: 18rem; margin: 10px; padding: 0; display: inline-block; font-size: small">
+  <img class="card-img-top" id="image_article" [src]="sanitize(this.photo_afficher)" alt="Card image cap" style="height: 180px">
+  <div class="card-body" style="color: #2D3142">
+    <h3 class="card-title">{{ article.nom }}</h3>
+    <h2 class="card-title">{{ article.prix }}€</h2>
+    <p class="card-text">{{ (article.description.length>40)? (article.description | slice:0:40)+'...':(article.description) }}</p>
+    <h6 *ngIf="article.description" style="color: #495057">{{ pseudo }}</h6>
+    <mat-card-actions *ngIf="isConnected() && (article.pseudo === pseudo)">
+      <button mat-button style="background-color: #fda00c!important; margin-right: 10px" (click)="editArticle(article?._id)">MODIFIER</button>
+      <button mat-button style="background-color: #fda00c!important; margin-left: 10px" (click)="deleteArticle(article)">SUPPRIMER</button>
+    </mat-card-actions>
+    <mat-card-actions *ngIf="isConnected() && (article.pseudo !== pseudo)">
+      <button class="btn btn-primary" style="background-color: #fda00c; border: #2D3142" (click)="onViewArticle()">ACHETER</button>
+    </mat-card-actions>
+  </div>
+</div>

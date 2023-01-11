@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 sidebar" style="ngtext-align:center; font-size:15pt;">
+      <div class="row">
+        <div class="col-md-9 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt; border: solid black 2px">
+          vide
+        </div>
+        <div class="col-md-3 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt">
+          <mat-form-field appearance="fill" style="font-size: 15px; border: #2D3142 solid; border-radius: 20px; margin: 3px">
+            <select matNativeControl id="select" style="padding: 5px" (change)="filterBy()">
+              <option value="date">Trier par date</option>
+              <option value="nom">Trier par nom</option>
+              <option value="prix_asc">Trier par prix croissant</option>
+              <option value="prix_dsc">Trier par prix décroissant</option>
+            </select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt; border: solid black 2px">
+          filtres
+        </div>
+        <div class="col-md-10 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt; border: solid black 2px">
+          <app-article-list></app-article-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
