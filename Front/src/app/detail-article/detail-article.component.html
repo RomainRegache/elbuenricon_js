@@ -2,15 +2,38 @@
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt;">
       <div class="row">
-        <div class="col-md-9 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt; border: solid black 2px">
-          <button class="btn btn-primary" style="background-color: #fda00c; border: #2D3142" (click)="onViewBackMarket()">Retour aux résultats</button>
+        <div class="col-md-9 col-sm-12 col-xs-12 sidebar"
+             style="text-align:center; font-size:15pt; border: solid black 2px">
+          <button class="btn btn-primary" style="background-color: #fda00c; border: #2D3142"
+                  (click)="onViewBackMarket()">Retour aux résultats
+          </button>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt; border: solid black 2px">
-          <img class="card-img-top" [src]="sanitize(this.photo_afficher)" alt="Card image cap" style="height: 180px">
+        <div class="col-md-3 col-sm-12 col-xs-12 sidebar"
+             style="text-align:center; font-size:15pt; border: solid black 2px">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="card-img-top" [src]="sanitize(this.photo_afficher)" alt="Card image cap"
+                     style="height: 180px" alt="Primary">
+              </div>
+              <div class="carousel-items" *ngFor="photo_afficher">
+                <img class="card-img-top" [src]="sanitize(this.photo_afficher)" alt="Other">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only"></span>
+            </a>
+          </div>
         </div>
-        <div class="col-md-9 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt; border: solid black 2px">
+        <div class="col-md-9 col-sm-12 col-xs-12 sidebar"
+             style="text-align:center; font-size:15pt; border: solid black 2px">
           {{ article.prix }}€
         </div>
       </div>
