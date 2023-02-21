@@ -60,24 +60,33 @@ router.post('/articles', AuthMiddleware.checkToken, (req, res) => {
 
 })
 
-router.put('/comments/:id',  AuthMiddleware.checkToken, async (req, res) => {
+router.put('/articles/:id',  AuthMiddleware.checkToken, async (req, res) => {
     const id = req.params.id;
     try {
-        const comment = await CommentModel.findById(id);
-        if (req?.pseudo !== comment?.pseudo) {
+        const article = await ArticleModel.findById(id);
+        if (req?.pseudo !== article?.pseudo) {
             res.status(401).send();
             return;
         }
         if (req.body.pseudo) {
-            comment.pseudo = req.body.pseudo;
+            article.pseudo = req.body.pseudo;
         }
-        if (req.body.comment) {
-            comment.comment = req.body.comment;
+        if (req.body.nom) {
+            article.nom = req.body.nom;
         }
-        const savedComment = await comment.save();
+        if (req.body.description) {
+            article.description = req.body.description;
+        }
+        if (req.body.idTypeProduit) {
+            article.description = req.body.idTypeProduit;
+        }
+        if (req.body.idEtatProduit) {
+            article.description = req.body.idEtatProduit;
+        }
+        const savedComment = await article.save();
         res.send(savedComment);
     } catch (err) {
-        console.error('Erreur PUT /comments/id : ', err);
+        console.error('Erreur PUT /article/id : ', err);
         res.status(400).send({
             message: err.message
         });
