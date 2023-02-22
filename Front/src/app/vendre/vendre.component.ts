@@ -50,7 +50,6 @@ export class VendreComponent implements OnInit {
       this.isEditing = true;
       this._arti.getArticleById(this.idArticle).subscribe({
         next: (arti: Article) => {
-          console.log(arti.prix);
           this.articleForm.get('nom')?.setValue(arti?.nom);
           this.articleForm.get('description')?.setValue(arti?.description);
           this.articleForm.get('prix')?.setValue(arti?.prix);
@@ -93,9 +92,9 @@ export class VendreComponent implements OnInit {
       },
       error: (httpError: HttpErrorResponse) => {
         if (httpError.status === 401) {
-          this.openSnackBar("Le pseudo renseigné ne correspond pas à votre compte.", "Ajout Commentaire")
+          this.openSnackBar("Le pseudo renseigné ne correspond pas à votre compte.", "Ajout Article")
         } else {
-          this.openSnackBar("Une erreur est survenue durant l'ajout du commentaire.", "Ajout Commentaire")
+          this.openSnackBar("Une erreur est survenue durant l'ajout de l'article.", "Ajout Article")
         }
       }
     });
@@ -105,14 +104,14 @@ export class VendreComponent implements OnInit {
   editComment(arti: Article) {
     this._arti.putArticle(this.idArticle, arti).subscribe({
       next: () => {
-        this.openSnackBar("Le commentaire a été correctement modifié.", "Ajout Commentaire");
-        this._router.navigate(['/home']);
+        this.openSnackBar("L'article a été correctement modifié.", "Edit Article");
+        this._router.navigate(['/market']);
       },
       error: (httpError: HttpErrorResponse) => {
         if (httpError.status === 401) {
-          this.openSnackBar("Le pseudo renseigné ne correspond pas à votre compte.", "Ajout Commentaire")
+          this.openSnackBar("Le pseudo renseigné ne correspond pas à votre compte.", "Edit Article")
         } else {
-          this.openSnackBar("Une erreur est survenue durant la modification du commentaire.", "Ajout Commentaire")
+          this.openSnackBar("Une erreur est survenue durant la modification de l'article.", "Edit Article")
         }
       }
     });
