@@ -77,6 +77,9 @@ router.put('/articles/:id',  AuthMiddleware.checkToken, async (req, res) => {
         if (req.body.description) {
             article.description = req.body.description;
         }
+        if (req.body.prix) {
+            article.prix = req.body.prix;
+        }
         if (req.body.idTypeProduit) {
             article.idTypeProduit = req.body.idTypeProduit;
         }
