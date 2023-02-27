@@ -1,0 +1,12 @@
+<form class="form" [formGroup]="propositionForm" (ngSubmit)="sendPrice()">
+  <mat-form-field class="field-full-width" appearance="fill">
+    <mat-label>Prix</mat-label>
+    <input matInput type="number" formControlName="prix" placeholder="Prix">
+    <mat-error *ngIf="form.prix?.errors?.required">
+      La prix est <strong>obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
+  <button mat-flat-button color="primary" aria-label="Se connecter">
+    PROPOSER
+  </button>
+</form>

@@ -11,7 +11,9 @@
           <img class="card-img-top" [src]="sanitize(this.photo_afficher)" alt="Card image cap" style="height: 180px">
         </div>
         <div class="col-md-9 col-sm-12 col-xs-12 sidebar" style="text-align:center; font-size:15pt; border: solid black 2px">
-          {{ article.prix }}€
+          <div class="row" style="text-align: center"><strong>{{ article.nom }}</strong></div><br>
+          <div class="row" style="text-align: center"><p>Proposé(es) au prix de : {{ article.prix }}€</p></div>
+          <app-form-proposition></app-form-proposition>
         </div>
       </div>
     </div>

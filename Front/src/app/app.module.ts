@@ -27,6 +27,7 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
 import { VendreComponent } from './vendre/vendre.component';
 import { UploadComponent } from './upload/upload.component';
 import {FileUploadModule} from "ng2-file-upload";
+import { FormPropositionComponent } from './form-proposition/form-proposition.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {FileUploadModule} from "ng2-file-upload";
     DetailArticleComponent,
     VendreComponent,
     UploadComponent,
+    FormPropositionComponent,
   ],
   imports: [
     FormsModule,
